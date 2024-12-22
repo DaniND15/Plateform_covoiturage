@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculez vos économies</title>
+    <style>
+        /* Styles globaux */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        /* En-tête */
+        header {
+            background-color: #fff;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-container .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00a2dd;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            padding: 0;
+            margin: 0;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .search-btn, .publish-btn {
+            background-color: #00a2dd;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-btn:hover, .publish-btn:hover {
+            background-color: #0073a6;
+        }
+
+        .user-icon {
+            width: 30px;
+            height: 30px;
+            background-color: #ddd;
+            border-radius: 50%;
+        }
+
+        /* Section principale */
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px;
+            background-color: #e8f7ff;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #0073a6;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .card form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .card form label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card form p {
+            font-size: 1.2rem;
+        }
+
+        .card form .highlight {
+            color: #00a2dd;
+            font-weight: bold;
+        }
+
+        .hero-image img {
+            width: 600px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête -->
+    <header>
+        <div class="header-container">
+            <div class="logo">CoMove</div>
+            <nav>
+                <ul>
+                    <li><a href="#">Covoiturage</a></li>
+                    <!-- <li><a href="#">Bus</a></li>
+                    <li><a href="#">CoMove</a></li> -->
+                </ul>
+            </nav>
+            <div class="actions">
+                <button class="search-btn">Rechercher</button>
+                <button class="publish-btn" onclick="publishTrip()">Publier un trajet</button>
+                <div class="user-icon"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section principale -->
+    <main>
+        <section class="hero">
+            <h1>Calculez vos économies en covoiturage</h1>
+            <div class="card">
+                <form>
+                    <label>
+                        <input type="radio" name="location" value="Paris"> Casablanca
+                    </label>
+                    <label>
+                        <input type="radio" name="location" value="Toulouse"> Rabat
+                    </label>
+                    <label>
+                        <select name="passengers">
+                            <option>1 Passager</option>
+                            <option>2 Passagers</option>
+                            <option>3 Passagers</option>
+                        </select>
+                    </label>
+                    <p>
+                        Économisez jusqu'à <span class="highlight">58 MAD</span> sur votre premier trajet
+                    </p>
+                    <button type="button" class="publish-btn" onclick="publishTrip()">Publier un trajet</button>
+                </form>
+            </div>
+            <div class="hero-image">
+                <img src="https://i0.wp.com/blog.horadolar.com.br/wp-content/uploads/2023/02/AnyConv.com__motorista-particular-principal.webp?resize=800%2C533&ssl=1" alt="Image de voiture" />
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function publishTrip() {
+            alert("La fonctionnalité 'Publier un trajet' est en cours de développement !");
+        }
+    </script>
+
+    
+</body>
+</html>

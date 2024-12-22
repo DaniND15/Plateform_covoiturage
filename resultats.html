@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résultats de recherche</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="search-summary">
+            <div class="criteria" id="search-summary">
+                <!-- Les critères de recherche seront insérés ici dynamiquement -->
+            </div>
+            <button class="btn" onclick="goBack()">Modifier la recherche</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="no-results">
+            <h2>Il n'y a pas encore de trajet disponible aujourd'hui entre ces villes</h2>
+            <p id="route-details"></p>
+            <button class="btn-alert">Créer une alerte</button>
+        </section>
+
+        <section class="later-departures">
+            <h3>Départs plus tard</h3>
+            <p>Aucun départ trouvé pour le moment.</p>
+        </section>
+    </main>
+
+    <!-- <footer>
+        <div class="container">
+            <p>&copy; 2024 BlaBlaCar. Tous droits réservés.</p>
+            <p><a href="index.html">Retour à l'accueil</a></p>
+        </div>
+    </footer> -->
+
+    <style>
+        /* --- Variables de base --- */
+        :root {
+            --primary-color: #40668f;
+            --secondary-color: #40668f;
+            --background-color: #f9f9f9;
+            --font-color: #555;
+            --font-family: 'Roboto', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            color: var(--font-color);
+            background-color: var(--background-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+        }
+
+        .search-summary {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .criteria {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            background-color: white;
+            color: var(--primary-color);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .no-results, .later-departures {
+            padding: 2rem 1rem;
+        }
+
+        .no-results h2 {
+            margin-bottom: 1rem;
+        }
+
+        .btn-alert {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+
+    <script>
+        // Récupération des paramètres de l'URL
+        const params = new URLSearchParams(window.location.search);
+
+        const departure = params.get("departure");
+        const destination = params.get("destination");
+        const date = params.get("date");
+        const passengers = params.get("passengers");
+
+        // Affichage des critères de recherche
+        document.getElementById("search-summary").innerHTML = `
+            <span><strong>Départ :</strong> ${departure}</span>
+            <span><strong>Destination :</strong> ${destination}</span>
+            <span><strong>Date :</strong> ${date}</span>
+            <span><strong>Passagers :</strong> ${passengers}</span>
+        `;
+
+        // Affichage des détails du trajet
+        document.getElementById("route-details").textContent = `${departure} → ${destination}`;
+
+        // Fonction pour retourner à la page précédente
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

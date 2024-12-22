@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covoiturage - CoMove</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="logo.png" alt="CoMove" class="logo-img">
+        </div>
+        <nav class="nav-links">
+            <a href="#" class="nav-item">Covoiturage</a>
+            <!-- <a href="#" class="nav-item">Bus</a> -->
+            <!-- <a href="#" class="nav-item">BlaBlaCar Daily</a> -->
+        </nav>
+        <div class="header-right">
+            </select>
+            <button id="search-btn" onclick="voitureproximite()">Voir les voitures dispos à proximité</button>
+            </a>
+            </select>
+            <button id="search-btn" onclick="publier()">Publier un trajet</button>
+            </a>
+            <a href="#" class="profile-icon">
+                <div class="profile-circle"></div>
+            </a>
+        </div>
+    </header>
+
+
+    <!-- <section  class="map">
+        <div class="voirmap">
+            <button class="discover-btn">Voir les voitures dispos à proximité</button>
+        </div>
+    </section> -->
+    
+    <!-- <header class="main-header">
+        <div class="container">
+            <div class="logo">🚗 BlaBlaCar</div>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#promo">Offres</a></li>
+                    <li><a href="#top-trips">Top Trajets</a></li>
+                    <li><a href="#footer">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="login-btn">Se connecter</button>
+        </div>
+    </header> -->
+    
+    <main>
+        <!-- <section class="hero">
+            <div class="hero-content">
+                <h1>Le covoiturage facile et économique</h1>
+                <p>Réservez votre trajet, partagez les frais et voyagez en toute sécurité.</p>
+                <div class="search-form">
+                    <input type="text" placeholder="Départ" id="departure" />
+                    <input type="text" placeholder="Destination" id="destination" />
+                    <input type="date" id="date" />
+                    <select id="passengers">
+                        <option value="1">1 passager</option>
+                        <option value="2">2 passagers</option>
+                        <option value="3">3 passagers</option>
+                        <option value="4">4 passagers</option>
+                    </select>
+                    <button id="search-btn" onclick="searchTrips()">Rechercher</button>
+                </div>
+            </div>
+        </section> -->
+        <section class="hero">
+                <!-- <div class="voirmap">
+                    <button class="discover-btn">Voir les voitures dispos à proximité</button>
+                </div> -->
+                <div class="hero-content">
+                    <h1>Connecter les trajets, changer le quotidien</h1>
+                    <p>Réservez votre trajet, partagez les frais et voyagez en toute sécurité.</p>
+                    <div class="search-form">
+                        <input type="text" placeholder="Départ" id="departure" />
+                        <input type="text" placeholder="Destination" id="destination" />
+                        <input type="date" id="date" />
+                        <select id="passengers">
+                            <option value="1">1 passager</option>
+                            <option value="2">2 passagers</option>
+                            <option value="3">3 passagers</option>
+                            <option value="4">4 passagers</option>
+                        </select>
+                        <button id="search-btn" onclick="searchTrips()">Rechercher</button>
+                    </div>
+                </div>
+        </section>
+
+        <section id="promo" class="promo">
+            <div class="container">
+                <h2>Offres exclusives</h2>
+                <p>Découvrez CoMove et recevez jusqu'à 100 MAD de prime covoiturage !</p>
+                <button class="discover-btn">Découvrir maintenant</button>
+            </div>
+        </section>
+
+        <section id="top-trips" class="popular-trips">
+            <div class="container">
+                <h2>Trajets populaires</h2>
+                <div class="trips-grid">
+                    <div class="trip-card">Casablanca → Rabat</div>
+                    <div class="trip-card">Casablanca → Marrakech</div>
+                    <div class="trip-card">Rabat → Kénitra</div>
+                    <div class="trip-card"> Rabat → Fès</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <!-- Section Logo et Adresse -->
+            <div class="logo-section">
+                <div class="logo">Go<span class="bold">Move</span></div>
+                <address>
+                    12111 Cypress,<br>
+                    TX,<br>
+                    United States
+                </address>
+                <div class="social-media">
+                    <p class="follow-us">Follow us</p>
+                    <div class="icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Services -->
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#">Ride Sharing</a></li>
+                    <li><a href="#">Route Planning</a></li>
+                    <li><a href="#">Safety Guidelines</a></li>
+                    <li><a href="#">Passenger Matching</a></li>
+                </ul>
+            </div>
+
+            <!-- Section Resources -->
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Locations</a></li>
+                    <li><a href="#">Privacy policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lien pour Font Awesome (icônes) -->
+    <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
+
+    <script>
+        function searchTrips() {
+            const departure = document.getElementById("departure").value;
+            const destination = document.getElementById("destination").value;
+            const date = document.getElementById("date").value;
+            const passengers = document.getElementById("passengers").value;
+
+            const url = `resultats.html?departure=${encodeURIComponent(departure)}&destination=${encodeURIComponent(destination)}&date=${encodeURIComponent(date)}&passengers=${encodeURIComponent(passengers)}`;
+            window.location.href = url;
+        }
+    </script>
+
+    <script>
+        function publier() {
+
+            const url = `Publiertrajet.html?}`;
+            window.location.href = url;
+        }
+    </script>
+
+    <script>
+        function voitureproximite() {
+
+            const url = `voitureproximite.html?}`;
+            window.location.href = url;
+        }
+    </script>
+        
+</body>
+</html>

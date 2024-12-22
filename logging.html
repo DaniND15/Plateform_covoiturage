@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carpool Profiles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f4f4f9;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .profile-selection {
+            margin: 20px 0;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .profile-form {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: none;
+            text-align: left;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: white;
+        }
+
+        .dashboard {
+            display: none;
+            text-align: left;
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .dashboard h3 {
+            margin-top: 20px;
+            color: #007bff;
+        }
+
+        .dashboard ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .dashboard ul li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>CoMove APP</h1>
+        <div class="profile-selection">
+            <button onclick="showForm('driverForm')">Créer Profil Conducteur</button>
+            <button onclick="showForm('passengerForm')">Créer Profil Passager</button>
+        </div>
+
+        <!-- Formulaire Conducteur -->
+        <div id="driverForm" class="profile-form">
+            <h2>Créer Profil Conducteur</h2>
+            <form onsubmit="showDashboard('driverDashboard'); populateDriverData(); return false;">
+                <label for="driverName">Nom:</label>
+                <input type="text" id="driverName" name="driverName" placeholder="Votre nom" required>
+
+                <label for="driverSurname">Prénom:</label>
+                <input type="text" id="driverSurname" name="driverSurname" placeholder="Votre prénom" required>
+
+                <label for="driverAge">Âge:</label>
+                <input type="number" id="driverAge" name="driverAge" placeholder="Votre âge" required>
+
+                <label for="driverCar">Modèle de voiture:</label>
+                <input type="text" id="driverCar" name="driverCar" placeholder="Modèle de votre voiture" required>
+
+                <label for="driverPhoto">Photo de profil:</label>
+                <input type="file" id="driverPhoto" name="driverPhoto" accept="image/*" required>
+
+                <button type="submit">Enregistrer</button>
+            </form>
+        </div>
+
+        <!-- Formulaire Passager -->
+        <div id="passengerForm" class="profile-form">
+            <h2>Créer Profil Passager</h2>
+            <form onsubmit="showDashboard('passengerDashboard'); populatePassengerData(); return false;">
+                <label for="passengerName">Nom:</label>
+                <input type="text" id="passengerName" name="passengerName" placeholder="Votre nom" required>
+
+                <label for="passengerSurname">Prénom:</label>
+                <input type="text" id="passengerSurname" name="passengerSurname" placeholder="Votre prénom" required>
+
+                <label for="passengerAge">Âge:</label>
+                <input type="number" id="passengerAge" name="passengerAge" placeholder="Votre âge" required>
+
+                <label for="passengerPhoto">Photo de profil:</label>
+                <input type="file" id="passengerPhoto" name="passengerPhoto" accept="image/*" required>
+
+                <button type="submit">Enregistrer</button>
+            </form>
+        </div>
+
+        <!-- Dashboard Conducteur -->
+        <div id="driverDashboard" class="dashboard">
+            <h2>Dashboard Conducteur</h2>
+            <p><strong>Profil Utilisateur :</strong></p>
+            <ul>
+                <li>Nom et prénom : <span id="driverFullName"></span></li>
+                <li>Modèle de voiture : <span id="driverCarModel"></span></li>
+                <li>Évaluation : <span>4.8/5</span></li>
+                <li>Historique de covoiturage :</li>
+                <ul>
+                    <li>Trajet : Rabat - Tanger, Note : 5/5</li>
+                    <li>Trajet : Tétouan - Marrakech, Note : 4.5/5</li>
+                </ul>
+                <li>Statistiques : 12 trajets, 1200 km parcourus</li>
+            </ul>
+        </div>
+
+        <!-- Dashboard Passager -->
+        <div id="passengerDashboard" class="dashboard">
+            <h2>Dashboard Passager</h2>
+            <p><strong>Profil Utilisateur :</strong></p>
+            <ul>
+                <li>Nom et prénom : <span id="passengerFullName"></span></li>
+                <li>Photo de profil : <span id="passengerProfilePhoto"></span></li>
+                <li>Évaluation : <span>4.9/5</span></li>
+                <li>Historique de covoiturage :</li>
+                <ul>
+                    <li>Trajet : Casablanca - Fès, Note : 5/5</li>
+                    <li>Trajet : Rabat - Agadir, Note : 4.8/5</li>
+                </ul>
+                <li>Statistiques : 8 trajets, 800 km parcourus</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function showForm(formId) {
+            document.getElementById('driverForm').style.display = 'none';
+            document.getElementById('passengerForm').style.display = 'none';
+            document.getElementById('driverDashboard').style.display = 'none';
+            document.getElementById('passengerDashboard').style.display = 'none';
+            document.getElementById(formId).style.display = 'block';
+        }
+
+        function showDashboard(dashboardId) {
+            document.getElementById('driverForm').style.display = 'none';
+            document.getElementById('passengerForm').style.display = 'none';
+            document.getElementById(dashboardId).style.display = 'block';
+        }
+
+        function populateDriverData() {
+            const name = document.getElementById('driverName').value;
+            const surname = document.getElementById('driverSurname').value;
+            const car = document.getElementById('driverCar').value;
+
+            document.getElementById('driverFullName').innerText = ${name} ${surname};
+            document.getElementById('driverCarModel').innerText = car;
+        }
+
+        function populatePassengerData() {
+            const name = document.getElementById('passengerName').value;
+            const surname = document.getElementById('passengerSurname').value;
+
+            document.getElementById('passengerFullName').innerText = ${name} ${surname};
+        }
+    </script>
+</body>
+</html>
